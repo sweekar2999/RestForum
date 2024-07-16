@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Edit Your Post</h1>
+        <h3>ID: <%= post.id %></h3>
+        <p>Username: <%= post.username %></p>
+        <form method="post" action="/posts/<%= post.id %>?_method=PATCH">
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea name="content" id="content" class="form-control" rows="4"><%= post.content %></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

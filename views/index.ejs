@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Quora Posts</h1>
+        <% for(let post of posts){ %>
+        <div class="card my-3">
+            <div class="card-body">
+                <h5 class="card-title">@<%= post.username %></h5>
+                <p class="card-text"><%= post.content %></p>
+                <a href="http://localhost:8080/posts/<%= post.id %>" class="btn btn-primary">View</a>
+                <a href="http://localhost:8080/posts/<%= post.id %>/edit" class="btn btn-warning">Edit</a>
+                <form method="post" action="/posts/<%= post.id %>?_method=DELETE" style="display:inline;">
+                    <button class="btn btn-danger">Delete Post</button>
+                </form>
+            </div>
+        </div>
+        <% } %>
+        <a href="http://localhost:8080/posts/new" class="btn btn-success my-4">Create New Post</a>
+    </div>
+</body>
+</html>
